@@ -37,6 +37,7 @@ def decode(r):
         if i not in alfabet:
             code_num += i
     code_num = int(code_num)
+    print(code_num)
     for i in r:
         if i in alfabet:
             decode_index = alfabet.find(i)
@@ -44,9 +45,10 @@ def decode(r):
             while True:
                 y = (26 * x + decode_index) / code_num
                 if y % 1 == 0:
+                    print(y)
                     output += alfabet[int(y)]
                     break
                 else:
                     x += 1
     return output
-print(decode("6015ekx"))
+print(decode("6015aaa"))
