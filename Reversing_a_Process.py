@@ -31,7 +31,22 @@ def decode(r):
 
     '''
     alfabet = 'abcdefghijklmnopqrstuvwxyz'
-    key = alfabet.find('e')
-    print(key)
-
-decode("6015ekx")
+    output = ''
+    code_num = ''
+    for i in r:
+        if i not in alfabet:
+            code_num += i
+    code_num = int(code_num)
+    for i in r:
+        if i in alfabet:
+            decode_index = alfabet.find(i)
+            x = 1
+            while True:
+                y = (26 * x + decode_index) / code_num
+                if y % 1 == 0:
+                    output += alfabet[int(y)]
+                    break
+                else:
+                    x += 1
+    return output
+print(decode("6015ekx"))
