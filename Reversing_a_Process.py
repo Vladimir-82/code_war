@@ -1,3 +1,4 @@
+import time
 def decode(r):
     '''
     Предположим, мы знаем процесс, с помощью которого строка s была преобразована в строку r (см. Объяснение ниже).
@@ -37,7 +38,6 @@ def decode(r):
         if i not in alfabet:
             code_num += i
     code_num = int(code_num)
-    print(code_num)
     for i in r:
         if i in alfabet:
             decode_index = alfabet.find(i)
@@ -45,10 +45,15 @@ def decode(r):
             while True:
                 y = (26 * x + decode_index) / code_num
                 if y % 1 == 0:
-                    print(y)
-                    output += alfabet[int(y)]
+                    if y == 26:
+                        output += 'a'
+                    else:
+                        output += alfabet[int(y)]
                     break
                 else:
                     x += 1
     return output
-print(decode("6015aaa"))
+start = time.time()
+print(decode("1273409kuqhkoynvvknsdwljantzkpnmfgf"))
+finish = time.time()
+print(finish - start)
