@@ -41,19 +41,39 @@ def decode(r):
     for i in r:
         if i in alfabet:
             decode_index = alfabet.find(i)
-            x = 1
-            while True:
-                y = (26 * x + decode_index) / code_num
-                if y % 1 == 0:
-                    if y == 26:
-                        output += 'a'
-                    else:
-                        output += alfabet[int(y)]
-                    break
-                else:
-                    x += 1
+            x = 0
+            for j in range(26):
+                y = (26 * x + decode_index) // code_num
+                print(y)
+                output += alfabet[y]
+                x += 1
+
+
     return output
 start = time.time()
-print(decode("1273409kuqhkoynvvknsdwljantzkpnmfgf"))
+print(decode("6015ekx"))
 finish = time.time()
 print(finish - start)
+
+# alfabet = 'abcdefghijklmnopqrstuvwxyz'
+# output = ''
+# code_num = ''
+# for i in r:
+#     if i not in alfabet:
+#         code_num += i
+# code_num = int(code_num)
+# for i in r:
+#     if i in alfabet:
+#         decode_index = alfabet.find(i)
+#         x = 1
+#         while True:
+#             y = (26 * x + decode_index) / code_num
+#             if y % 1 == 0:
+#                 output += alfabet[int(y)]
+#                 print(y)
+#                 break
+#             else:
+#                 x += 1
+# return output
+
+
