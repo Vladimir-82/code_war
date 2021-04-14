@@ -38,42 +38,30 @@ def decode(r):
         if i not in alfabet:
             code_num += i
     code_num = int(code_num)
+
+    imposs_list = []
+    for i in range(26):
+        impossble = i * code_num % 26
+        if impossble in imposs_list:
+            return 'Impossible to decode'
+        imposs_list.append(impossble)
+
     for i in r:
         if i in alfabet:
             decode_index = alfabet.find(i)
-            x = 0
-            for j in range(26):
-                y = (26 * x + decode_index) // code_num
-                print(y)
-                output += alfabet[y]
-                x += 1
-
-
+            j = 1
+            while True:
+                dev, encode_index = divmod(j * code_num, 26)
+                y = (26 * dev + decode_index) / code_num
+                if y % 1 == 0:
+                    if y == 26:
+                        output += 'a'
+                    else:
+                        output += alfabet[int(y)]
+                    break
+                j += 1
     return output
 start = time.time()
-print(decode("6015ekx"))
+print(decode("1122305vvkhrrcsyfkvejxjfvafzwpsdqgp"))
 finish = time.time()
-print(finish - start)
-
-# alfabet = 'abcdefghijklmnopqrstuvwxyz'
-# output = ''
-# code_num = ''
-# for i in r:
-#     if i not in alfabet:
-#         code_num += i
-# code_num = int(code_num)
-# for i in r:
-#     if i in alfabet:
-#         decode_index = alfabet.find(i)
-#         x = 1
-#         while True:
-#             y = (26 * x + decode_index) / code_num
-#             if y % 1 == 0:
-#                 output += alfabet[int(y)]
-#                 print(y)
-#                 break
-#             else:
-#                 x += 1
-# return output
-
-
+print('time ----->', finish - start)

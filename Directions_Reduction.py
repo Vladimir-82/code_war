@@ -50,29 +50,27 @@ def dirReduc(arr):
     Дополнительные примеры см. В разделе «Образцы тестов»:
     Заметки
 
-    Не все пути можно сделать проще. Путь [«СЕВЕР», «ЗАПАД», «ЮГ», «ВОСТОК»]
+    Не все пути можно сделать проще.
+    Путь [«СЕВЕР», «ЗАПАД», «ЮГ», «ВОСТОК»]
     не сводится. «СЕВЕР» и «ЗАПАД», «ЗАПАД» и «ЮГ», «ЮГ» и «ВОСТОК»
     не являются прямо противоположными друг другу и не могут стать таковыми. Следовательно, результирующий путь - это сам: ["СЕВЕР", "ЗАПАД", "ЮГ", "ВОСТОК"].
     '''
-    if arr == ["NORTH", "WEST", "SOUTH", "EAST"]:
-        return ["NORTH", "WEST", "SOUTH", "EAST"]
-    if arr == ["WEST", "SOUTH", "EAST", "NORTH"]:
-        return ["WEST", "SOUTH", "EAST", "NORTH"]
-    if arr == ["SOUTH", "EAST", "NORTH", "WEST"]:
-        return ["SOUTH", "EAST", "NORTH", "WEST"]
-    if arr == ["EAST", "NORTH", "WEST", "SOUTH"]:
-        return ["EAST", "NORTH", "WEST", "SOUTH"]
-
     x, y = 0, 0
+    step = 0
     for i in range(len(arr)):
         if arr[i] == 'NORTH':
             y += 1
+            step += 1
         if arr[i] == 'SOUTH':
             y -= 1
+            step += 1
         if arr[i] == 'WEST':
             x -= 1
+            step += 1
         if arr[i] == 'EAST':
             x += 1
+            step += 1
+
     output_arr = ''
     if x < 0:
         output_arr += 'WEST ' * abs(x)
@@ -83,7 +81,42 @@ def dirReduc(arr):
     if y < 0:
         output_arr += 'SOUTH ' * abs(y)
 
-    return output_arr.split()
 
 
-print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
+
+dirReduc(["NORTH", "NORTH", "WEST", "SOUTH", "EAST", "NORTH", "WEST"])
+
+
+#     if arr == ["NORTH", "WEST", "SOUTH", "EAST"]:
+#         return ["NORTH", "WEST", "SOUTH", "EAST"]
+#     if arr == ["WEST", "SOUTH", "EAST", "NORTH"]:
+#         return ["WEST", "SOUTH", "EAST", "NORTH"]
+#     if arr == ["SOUTH", "EAST", "NORTH", "WEST"]:
+#         return ["SOUTH", "EAST", "NORTH", "WEST"]
+#     if arr == ["EAST", "NORTH", "WEST", "SOUTH"]:
+#         return ["EAST", "NORTH", "WEST", "SOUTH"]
+#
+#     x, y = 0, 0
+#     for i in range(len(arr)):
+#         if arr[i] == 'NORTH':
+#             y += 1
+#         if arr[i] == 'SOUTH':
+#             y -= 1
+#         if arr[i] == 'WEST':
+#             x -= 1
+#         if arr[i] == 'EAST':
+#             x += 1
+#     output_arr = ''
+#     if x < 0:
+#         output_arr += 'WEST ' * abs(x)
+#     if x > 0:
+#         output_arr += "EAST " * x
+#     if y > 0:
+#         output_arr += 'NORTH ' * y
+#     if y < 0:
+#         output_arr += 'SOUTH ' * abs(y)
+#
+#     return output_arr.split()
+#
+#
+# print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
