@@ -67,15 +67,11 @@ def dirReduc(arr):
     ]
     x, y = 0, 0
     optimiz_path = []
-    direction = 0
-    while direction <= len(arr):
-
+    for direction in range(0, len(arr) - 3):
         slc = arr[direction:direction + 4]
         if slc in ROUND:
             optimiz_path.extend(arr[direction:direction + 4])
             arr[direction:direction + 4] = []
-        else:
-            direction += 1
     if arr:
         for i in range(len(arr)):
             if arr[i] == 'NORTH':
@@ -106,26 +102,4 @@ def dirReduc(arr):
 
 
 
-print(dirReduc(['EAST', 'NORTH']))
-
-
-#     for i in range(len(arr)):
-#         if arr[i] == 'NORTH':
-#             y += 1
-#         if arr[i] == 'SOUTH':
-#             y -= 1
-#         if arr[i] == 'WEST':
-#             x -= 1
-#         if arr[i] == 'EAST':
-#             x += 1
-#     output_arr = ''
-#     if x < 0:
-#         output_arr += 'WEST ' * abs(x)
-#     if x > 0:
-#         output_arr += "EAST " * x
-#     if y > 0:
-#         output_arr += 'NORTH ' * y
-#     if y < 0:
-#         output_arr += 'SOUTH ' * abs(y)
-#
-#     return output_arr.split()
+print(dirReduc(['NORTH', 'EAST', 'NORTH', 'EAST', 'NORTH', 'WEST', 'SOUTH', 'SOUTH', 'SOUTH', 'WEST', 'NORTH', 'EAST', 'EAST', 'NORTH', 'WEST', 'SOUTH', 'EAST']))
