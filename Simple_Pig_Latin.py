@@ -7,12 +7,11 @@ def pig_it(text):
     splt = text.split()
     out = []
     for i in splt:
-        out.append(i[1:] + i[0] + 'ay')
-    for i in out:
-        if "!" in i:
-            out[out.index(i)] = "!"
-        if "?" in i:
-            out[out.index(i)] = "?"
+        if i.isalpha():
+            out.append(i[1:] + i[0] + 'ay')
+        else:
+            out.append(i[1:] + i[0])
+
     return ' '.join(out)
 
 print(pig_it('O tempora o mores !'))
