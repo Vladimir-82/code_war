@@ -20,7 +20,7 @@ def domain_name(url):
         finish = step_1.find('.')
         return step_1[:finish]
     else:
-        return '8' + step_1
+        return step_1
 
 
 print(domain_name("29nyl78gz5bzz2d3"))
