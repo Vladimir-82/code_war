@@ -20,14 +20,16 @@ def solution(string, markers):
     '''
     splt = string.split('\n')
     print(splt)
-    output = ''
+    output = []
     for el in splt:
         for symb in el:
             if symb in markers:
                 index = el.find(symb)
-                output += el[:index]
+                output.append(el[:index])
 
-    print(output)
+
+    joy = '\\n'.join(output)
+    print(joy)
 
 
 print(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]))
