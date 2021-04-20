@@ -10,7 +10,7 @@ def domain_name(url):
     if 'www.' in url:
         start = url.find('www.') + 4
         step_1 = url[start:]
-    elif '/' in url:
+    elif '//' in url:
         start = url.find('//') + 2
         step_1 = url[start:]
     else:
@@ -23,4 +23,4 @@ def domain_name(url):
         return step_1
 
 
-print(domain_name("29nyl78gz5bzz2d3"))
+print(domain_name("http://github.com/carbonfive/raygun"))
