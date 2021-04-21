@@ -19,14 +19,17 @@ def sum_pairs(ints, s):
     '''
 
     summ = []
-    for k in range(len(ints) - 1):
-        for i in range(1 + k, len(ints)):
-            res = ints[k] + ints[i]
-            if res == s:
-                summ.append([ints[k], ints[i]])
+    for i in ints:
+        for j in ints:
+            res = i + j
+            if res == s and i != j:
+                summ.append([i, j])
+    return None if not summ else summ[0]
 
-
-    print(summ)
-    # out = [pair for pair in per if sum(pair) == s]
-    # return None if not out else list(out[0])
-print(sum_pairs([10, 5, 2, 3, 7, 5], 10))
+    # summ = []
+    # for k in range(len(ints) - 1):
+    #     for i in range(1 + k, len(ints)):
+    #         res = ints[k] + ints[i]
+    #         if res == s:
+    #             summ.append([ints[k], ints[i]])
+print(sum_pairs([11, 3, 7, 5],         10))
