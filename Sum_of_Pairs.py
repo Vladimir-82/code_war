@@ -17,13 +17,20 @@ def sum_pairs(ints, s):
     #  there are no pairs of values that can be added to produce 2.
     == None/nil/undefined (Based on the language)
     '''
-
+    index_k, index_i = len(ints) - 1, len(ints) - 1
+    spred = ints[:]
     summ = []
     for k in range(len(ints) - 1):
         for i in range(1 + k, len(ints)):
             res = ints[k] + ints[i]
             if res == s:
-                summ.append([ints[k], ints[i]])
+                if ints.index(ints[k]) < index_k:
+                    spred[ints.index(ints[k])] = None
+                    if ints.index(ints[i]) < index_i:
+                        spred[ints.index(ints[i])] = None
+                        summ.append([ints[k], ints[i]])
+                        index_k, index_i = ints.index(ints[k]), ints.index(ints[i])
+                        spred = ints
 
 
     print(summ)
