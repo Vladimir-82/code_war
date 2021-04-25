@@ -17,26 +17,21 @@ def sum_pairs(ints, s):
     #  there are no pairs of values that can be added to produce 2.
     == None/nil/undefined (Based on the language)
     '''
-    control = len(ints) - 1
-    k = 0
     i = 1
-    summ = []
+    k = 0
     while True:
         res = ints[k] + ints[i]
-        if res == s and i <= control:
-            summ = [ints[k], ints[i]]
-            control = i
+        if res == s:
+            return [ints[k], ints[i]]
         i += 1
-        if i >= len(ints):
-            k += 1
-            if k == len(ints) - 1:
-                break
-            i = k + 1
-
-    print(summ)
-print(sum_pairs([10, 5, 2, 3, 7, 5], 10))
-
-
+        if k == len(ints) - 2:
+            return None
+        res = ints[k] + ints[i]
+        if res == s:
+            return [ints[k], ints[i]]
+        k += 1
+        i = k + 1
+print(sum_pairs([1, 4, 8, 7, 3, 15], 8))
 # indx = len(ints) - 1
 #     summ = []
 #     for k in range(len(ints) - 1):
@@ -47,4 +42,23 @@ print(sum_pairs([10, 5, 2, 3, 7, 5], 10))
 #                 indx = i
 #
 #     return None if not summ else summ
-# print(sum_pairs([10, 5, 2, 3, 7, 5], 10))
+#
+
+
+# control = len(ints) - 1
+#     k = 0
+#     i = 1
+#     summ = []
+#     while True:
+#         res = ints[k] + ints[i]
+#         if res == s and i <= control:
+#             summ = [ints[k], ints[i]]
+#             control = i
+#         i += 1
+#         if i >= len(ints):
+#             k += 1
+#             if k == len(ints) - 1:
+#                 break
+#             i = k + 1
+#
+#     return None if not summ else summ
