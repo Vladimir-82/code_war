@@ -17,21 +17,30 @@ def sum_pairs(ints, s):
     #  there are no pairs of values that can be added to produce 2.
     == None/nil/undefined (Based on the language)
     '''
-    i = 1
+    control = len(ints) - 1
     k = 0
+    i = 1
+    summ = []
     while True:
         res = ints[k] + ints[i]
-        if res == s:
-            return [ints[k], ints[i]]
+        if res == s and i <= control:
+            summ = [ints[k], ints[i]]
+            ints = ints[:i]
+            if len(ints) <= 2:
+                return summ
+            control = i
+
         i += 1
-        if k == len(ints) - 2:
-            return None
-        res = ints[k] + ints[i]
-        if res == s:
-            return [ints[k], ints[i]]
-        k += 1
-        i = k + 1
-print(sum_pairs([1, 4, 8, 7, 3, 15], 8))
+        if i >= len(ints):
+            k += 1
+            if k == len(ints) - 1:
+                break
+            i = k + 1
+
+    return None if not summ else summ
+print(sum_pairs([1, 1], 2))
+
+
 # indx = len(ints) - 1
 #     summ = []
 #     for k in range(len(ints) - 1):
