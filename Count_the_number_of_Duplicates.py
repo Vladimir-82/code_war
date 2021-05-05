@@ -1,13 +1,15 @@
 def duplicate_count(text):
+    spred = []
     lst = list(text.lower())
     counter = 0
     for i in lst:
+        if i in spred:
+            continue
         if lst.count(i) > 1:
             counter += 1
-            for j in lst:
-                if i == j:
-                    lst.remove(i)
+            if i not in spred:
+                spred.append(i)
     return counter
 
 
-print(duplicate_count("hmksJTFc1kcOdbOz0nZ9fmjMNBBYIHvRRLqROg"))
+print(duplicate_count("sxYooI2PFmbz7TcaSCvCM0YvUYDECcTvX3EoYZGFDy7rSWNZirKBRNJYiNJ8Ub7eI5ec55vTSN3q1sppWgyA"))
