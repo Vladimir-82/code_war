@@ -6,9 +6,9 @@ def balanced_parens(n):
     balanced_parens(2) => ["()()","(())"]
     balanced_parens(3) => ["()()()","(())()","()(())","(()())","((()))"]
     '''
-    param = '()'
+    param = ["()"]
 
-    res = 
+    res = [i * n for i in param]
 
     print(res)
 
