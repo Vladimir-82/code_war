@@ -1,14 +1,20 @@
 def min_permutation(n):
-
     res = ''.join(sorted(str(n)))
-    if '0' not in str(n):
+    print(res)
+    out = ''
+    if res[0] != 0:
         return int(res)
     else:
         for i in res:
             if i != '0':
-                ind = res.find(i)
-                print(ind)
+                out += str(int(res[:'0']))
+                out += i
                 break
-        res = res[ind] + res[1:ind] + '0' + res[ind+1:]
-        return int(res)
-print(min_permutation(35007))
+        out += str(int(res[res.find('0'):res.find(i)]))
+        out += '0'
+        out += res[res.find(i)+1:]
+
+
+
+        return out
+print(min_permutation(-20))
