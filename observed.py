@@ -30,32 +30,6 @@ def get_pins(observed):
             res.append('80')
 
     print(res)
-
-
+    out = list(itertools.product())
+    print(out)
 get_pins('1234')
-
-
-
-# res = []
-#     for i in observed:
-#         comb = []
-#         comb.append(i)
-#
-#         for j in range(4):
-#             if i in feald[j]:
-#                 k = feald[j].index(i)
-#
-#                 if j != 0:
-#                     if feald[j - 1][k] != False:
-#                         comb.append(feald[j - 1][k])
-#                 if j < len(feald) - 1:
-#                     if feald[j + 1][k] != False:
-#                         comb.append(feald[j + 1][k])
-#                 if k != 0:
-#                     if feald[j][k - 1] != False:
-#                         comb.append(feald[j][k - 1])
-#                 if k < len(feald[j]) - 1:
-#                     if feald[j][k + 1] != False:
-#                         comb.append(feald[j][k + 1])
-#                 break
-#         res.append(comb)
