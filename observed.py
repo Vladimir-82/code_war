@@ -30,6 +30,12 @@ def get_pins(observed):
             res.append('80')
 
     print(res)
-    out = list(itertools.product())
-    print(out)
-get_pins('1234')
+    out = []
+    a,b,c,d,e,f,j,h = 0,0,0,0,0,0,0,0
+
+    if len(observed) == 1:
+        for i in res[0]:
+            out.append(i)
+
+    return out
+get_pins('8')
