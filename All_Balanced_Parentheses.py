@@ -6,11 +6,19 @@ def balanced_parens(n):
     balanced_parens(2) => ["()()","(())"]
     balanced_parens(3) => ["()()()","(())()","()(())","(()())","((()))"]
     '''
-    param = ["()"]
+    start = [""]
 
-    res = [i * n for i in param]
+    i = 0
+    while i < n:
+        i = 0
+        progress = []
+        for j in range(1, len(start) + 1):
+            sls = start[i][:j] + '()' + start[i][j:]# j не растет
+            progress.append(sls)
 
-    print(res)
+        i += 1
+        start = progress
+    return list(set(progress))
 
 
-balanced_parens(2)
+print(balanced_parens(3))
