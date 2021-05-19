@@ -1,4 +1,10 @@
-import itertools
+def counter(start):
+    progress = []
+    for i in range(len(start)):
+        for j in range(1, len(start[0]) + 1):
+            sls = start[i][:j] + '()' + start[i][j:]
+            progress.append(sls)
+    return progress
 def balanced_parens(n):
     '''
     balanced_parens(0) => [""]
@@ -6,19 +12,13 @@ def balanced_parens(n):
     balanced_parens(2) => ["()()","(())"]
     balanced_parens(3) => ["()()()","(())()","()(())","(()())","((()))"]
     '''
-    start = [""]
+    if n == 0:
+        return [""]
 
-    i = 0
-    while i < n:
-        i = 0
-        progress = []
-        for j in range(1, len(start) + 1):
-            sls = start[i][:j] + '()' + start[i][j:]# j не растет
-            progress.append(sls)
+    start = ["()"]
+    while True:
+        start = counter(start)
+        if int(len(start[0]) // 2) == n:
+            return list(set(start))
 
-        i += 1
-        start = progress
-    return list(set(progress))
-
-
-print(balanced_parens(3))
+print(balanced_parens(5))
