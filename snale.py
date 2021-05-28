@@ -97,11 +97,11 @@ array = [[1,  2,   3,  4,   5],
 print(snail(array))
 
 
-Traceback (most recent call last):
-  File "/workspace/default/src/codewars-test/codewars_test/test_framework.py", line 111, in wrapper
-    func()
-  File "tests.py", line 66, in it_1
-    test.assert_equals(snail(a), solution(b))
-  File "/workspace/default/solution.py", line 14, in snail
-    if snail_map[i][j] != None:
-IndexError: list index out of range
+# Traceback (most recent call last):
+#   File "/workspace/default/src/codewars-test/codewars_test/test_framework.py", line 111, in wrapper
+#     func()
+#   File "tests.py", line 66, in it_1
+#     test.assert_equals(snail(a), solution(b))
+#   File "/workspace/default/solution.py", line 14, in snail
+#     if snail_map[i][j] != None:
+# IndexError: list index out of range
