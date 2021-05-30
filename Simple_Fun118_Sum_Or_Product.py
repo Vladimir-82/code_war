@@ -17,16 +17,24 @@ def sum_or_product(arr):
     ([1, 1, 2, 4, 5],  80),
     ([10, 20, 30],  6000)
     '''
-    i = 0
-    while len(arr) > 1:
-        if arr[i] == 1:
-            ind = arr.index(arr[i])
-            s = arr[i] + arr[i+1]
-            arr[ind:ind+2:] = [s]
-        else:
-            s = arr[i] * arr[i+1]
-            arr[ind:ind + 2:] = [s]
-        i += 1
-    return arr
+    while True:
+        if len(arr) == 1:
+            return arr[0]
 
-print(sum_or_product([1, 1, 5, 7]))
+        if arr[0] == 1 or arr[1] == 1:
+            if 1 <= arr[0] <= 2:
+                s = arr[0] + arr[1]
+                arr[0:2:] = [s]
+
+        else:
+            s = arr[0] * arr[1]
+            arr[0:2:] = [s]
+
+
+        if arr[0] >= 3:
+            arr.append(arr[0])
+            del arr[0]
+
+
+
+print(sum_or_product([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
